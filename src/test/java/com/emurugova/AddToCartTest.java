@@ -49,7 +49,3 @@ public static CredentialsConfig credentials = ConfigFactory.create(CredentialsCo
         $(".ico-cart").shouldHave(text(response));
     }
 }
-
-
-
-
