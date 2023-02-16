@@ -47,8 +47,6 @@ public static CredentialsConfig credentials = ConfigFactory.create(CredentialsCo
 
         open("/");
         $(".ico-cart").shouldHave(text(response));
-
-        System.out.println(response);
     }
 }
 
