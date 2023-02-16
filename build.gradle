@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def selenideVersion = "5.24.0",
+    junitVersion = "5.8.1"
+
+dependencies {
+    testImplementation(
+            "org.aspectj:aspectjweaver:1.9.6",
+            "com.codeborne:selenide:$selenideVersion",
+            'org.aeonbits.owner:owner:1.0.12',
+            "org.assertj:assertj-core:3.23.1",
+            "org.slf4j:slf4j-simple:1.7.29",
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+            "io.qameta.allure:allure-selenide:2.19.0",
+            "io.rest-assured:rest-assured:5.2.0",
+            "org.aspectj:aspectjweaver:1.9.6"
+    )
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    "org.slf4j:slf4j-simple:1.7.29"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+//            events "started", "failed"
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
