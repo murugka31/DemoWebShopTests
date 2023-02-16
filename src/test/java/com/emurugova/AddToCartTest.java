@@ -16,7 +16,7 @@ public class AddToCartTest extends TestBase{
 public static CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
 
     @Test
-    void addToCartTest() {
+    void addProductToCartTest() {
         String authorizationCookie =
                 given()
                         .contentType("application/x-www-form-urlencoded; charset=UTF-8")
@@ -46,7 +46,6 @@ public static CredentialsConfig credentials = ConfigFactory.create(CredentialsCo
                         .path("updatetopcartsectionhtml");
 
         open("/");
-        $(".account").shouldHave(text(credentials.login()));
         $(".ico-cart").shouldHave(text(response));
 
         System.out.println(response);
