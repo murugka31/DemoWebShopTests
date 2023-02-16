@@ -16,7 +16,7 @@ public class AddToCartTest extends TestBase{
 public static CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class);
 
     @Test
-    void addProductToCartTest() {
+    void quantityCheckInCartTest() {
         String authorizationCookie =
                 given()
                         .contentType("application/x-www-form-urlencoded; charset=UTF-8")
